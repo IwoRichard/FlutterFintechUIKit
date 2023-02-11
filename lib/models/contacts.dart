@@ -11,6 +11,11 @@ class Contacts {
 
 List<Contacts> accounts = [
   Contacts(
+    name: 'Wilson', 
+    image: 'assets/wilson.jpg',
+    number: '1038449350'
+  ),
+  Contacts(
     name: 'House', 
     image: 'assets/cesar.jpg',
     number: '1038449350'
@@ -34,5 +39,25 @@ List<Contacts> accounts = [
     name: 'Foreman', 
     image: 'assets/foreman.jpg',
     number: '4958603034'
+  ),
+  Contacts(
+    name: 'Peter', 
+    image: 'assets/peter.jpg',
+    number: '1038449350'
+  ),
+  Contacts(
+    name: 'Rebecca', 
+    image: 'assets/rebecca.jpg',
+    number: '1038449350'
+  ),
+  Contacts(
+    name: 'Jack', 
+    image: 'assets/jack.jpg',
+    number: '1038449350'
+  ),
+  Contacts(
+    name: 'Goerge', 
+    image: 'assets/goerge.jpg',
+    number: '1038449350'
   ),
 ];

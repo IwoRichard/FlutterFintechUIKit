@@ -82,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 children: [
                   Text(
-                    'Recent Transactions',
+                    'Recent Activity',
                     style: GoogleFonts.inter(
                       fontSize: 16, fontWeight: FontWeight.w600),
                   ),
@@ -116,7 +116,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       data.date, 
                       data.price, 
                       data.debit, 
-                      data.logo
                     );
                   }
                 ),

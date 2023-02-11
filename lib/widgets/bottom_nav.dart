@@ -1,12 +1,10 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:iconsax/iconsax.dart';
 import '../screens/card_screen.dart';
 import '../screens/home_screen.dart';
-import '../screens/market_price_screen.dart';
 import '../screens/profile_screen.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 
 class BottomBar extends StatefulWidget {
@@ -21,7 +19,6 @@ class _BottomBarState extends State<BottomBar> {
   final screens= [
     const HomeScreen(),
     const CardScreen(),
-    const MarketPriceScreen(),
     const ProfileScreen(),
   ];
   @override
@@ -32,11 +29,11 @@ class _BottomBarState extends State<BottomBar> {
       bottomNavigationBar: BottomNavigationBar(
         elevation: 3,
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Colors.blue.shade700,
         unselectedItemColor: Colors.grey,
         iconSize: 20,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
         selectedIconTheme: const IconThemeData(size: 25),
         selectedLabelStyle: const TextStyle(fontFamily: 'Gotham',fontWeight: FontWeight.w700,fontSize: 13),
         unselectedLabelStyle: const TextStyle(fontFamily: 'Gotham',fontSize: 13,),
@@ -44,23 +41,18 @@ class _BottomBarState extends State<BottomBar> {
         currentIndex: currentIndex,
         items: [
           const BottomNavigationBarItem(
-            activeIcon: FaIcon(FontAwesomeIcons.house),
-            icon: FaIcon(FontAwesomeIcons.house),
+            activeIcon: Icon(Iconsax.home_25),
+            icon: Icon(Iconsax.home_2),
             label: 'Home'
           ),
           const BottomNavigationBarItem(
-            activeIcon: Icon(Icons.money_rounded),
-            icon: Icon(Icons.money_rounded),
+            activeIcon: Icon(Iconsax.card5),
+            icon: Icon(Iconsax.card),
             label: 'Cards'
           ),
           const BottomNavigationBarItem(
-            activeIcon: Icon(EvaIcons.barChart),
-            icon: Icon(EvaIcons.barChart),
-            label: 'Market Price',
-          ),
-          const BottomNavigationBarItem(
-            activeIcon: Icon(Icons.person),
-            icon: Icon(Icons.person_outline_rounded),
+            activeIcon: Icon(Iconsax.profile_tick5),
+            icon: Icon(Iconsax.profile_tick4),
             label: 'Profile'
           ) 
         ],

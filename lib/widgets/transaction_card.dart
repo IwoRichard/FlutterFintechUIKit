@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-Widget transactionCard(title, date, price, debit, logo,) {
+Widget transactionCard(title, date, price, debit,) {
   return Row(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       Container(
-        padding: const EdgeInsets.all(5),
-        height: 50,
-        width: 50,
+        height: 45,
+        width: 45,
         decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(width: 1,color: Colors.grey.withOpacity(.2)),
-          image: DecorationImage(image: AssetImage(logo),fit: BoxFit.cover)
+          borderRadius: BorderRadius.circular(15),
+          color: debit == true ? Colors.red.shade100.withOpacity(.5) : Colors.green.shade100.withOpacity(.5)
+        ),
+        child: Center(
+          child: Icon(
+            debit == true ? Icons.arrow_downward_rounded : Icons.arrow_upward_rounded,
+            color: debit == true ? Colors.red.shade400 : Colors.green.shade500,
+          ),
         ),
       ),
       const SizedBox(width: 10,),
@@ -37,21 +41,13 @@ Widget transactionCard(title, date, price, debit, logo,) {
       const Spacer(),
       Column(
         crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             price,
             style: GoogleFonts.inter(
               fontSize: 15,fontWeight: FontWeight.w500),
           ),
-          const SizedBox(height: 2,),
-          debit == true ? Text(
-            'debit',
-            style: GoogleFonts.inter(color: Colors.red.shade500),
-            ) : 
-            Text(
-              'credit',
-              style: GoogleFonts.inter(color: Colors.green.shade500),
-            )
         ],
       )
     ],

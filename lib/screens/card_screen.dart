@@ -1,12 +1,12 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import'package:flutter/material.dart';
 import 'package:flutter_fintech/models/card_details.dart';
 import 'package:flutter_fintech/models/contacts.dart';
 import 'package:flutter_fintech/screens/card_details_screen.dart';
 import 'package:flutter_fintech/widgets/bottom_sheet.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:iconsax/iconsax.dart';
+import '../widgets/analytics_card.dart';
+import '../widgets/card.dart';
+import '../widgets/invite_friends_card.dart';
 
 class CardScreen extends StatefulWidget {
   const CardScreen({super.key});
@@ -68,55 +68,13 @@ class _CardScreenState extends State<CardScreen> {
                           )
                         );
                       },
-                      child: Container(
-                        margin: EdgeInsets.only(right: 10),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: data.cardColor,
-                          borderRadius: BorderRadius.circular(20)
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                ConstrainedBox(
-                                  constraints: BoxConstraints(maxWidth: 30,maxHeight: 30),
-                                  child: Image(image: AssetImage(data.cardLogo))),
-                                Spacer(),
-                                Icon(Icons.more_vert, color: Colors.white,)
-                              ],
-                            ),
-                            Spacer(),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Opacity(
-                                  opacity: .5,
-                                  child: Text(
-                                    'Balance',
-                                    style: GoogleFonts.inter(
-                                      fontSize: 15, fontWeight: FontWeight.w500, color: Colors.white
-                                    )
-                                  ),
-                                ),
-                                Text(
-                                  data.cardBalance,
-                                  style: GoogleFonts.inter(
-                                    fontSize: 17, fontWeight: FontWeight.w700,color: Colors.white
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
+                      child: cards(data),
                     ),
                   );
                 },
               ),
             ),
-            SizedBox(height: 15,),
+            const SizedBox(height: 15,),
             Container(
               width: double.infinity,
               height: 50,
@@ -133,7 +91,7 @@ class _CardScreenState extends State<CardScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 15,),
+            const SizedBox(height: 15,),
             Text(
               'Send money',
               style: GoogleFonts.inter(
@@ -157,7 +115,7 @@ class _CardScreenState extends State<CardScreen> {
                         ),
                         child: Icon(Icons.add,size: 25,color: Colors.black.withOpacity(.2),),
                       ),
-                      SizedBox(height: 10,),
+                      const SizedBox(height: 10,),
                       Text(
                         'Add',
                         style: GoogleFonts.inter(
@@ -165,7 +123,7 @@ class _CardScreenState extends State<CardScreen> {
                       )
                     ],
                   ),
-                  SizedBox(width: 10,),
+                  const SizedBox(width: 10,),
                   Expanded(
                     child: ListView.builder(
                       physics: const BouncingScrollPhysics(),
@@ -180,7 +138,7 @@ class _CardScreenState extends State<CardScreen> {
                             bottomSheet(context, data);
                           },
                           child: Container(
-                            margin: EdgeInsets.only(right: 10),
+                            margin: const EdgeInsets.only(right: 10),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -192,7 +150,7 @@ class _CardScreenState extends State<CardScreen> {
                                     image: DecorationImage(image: AssetImage(data.image),fit: BoxFit.cover)
                                   ),
                                 ),
-                                SizedBox(height: 10,),
+                                const SizedBox(height: 10,),
                                 Text(
                                   data.name,
                                   style: GoogleFonts.inter(
@@ -214,72 +172,12 @@ class _CardScreenState extends State<CardScreen> {
                 children: [
                   AspectRatio(
                     aspectRatio: 1/1,
-                    child: Container(
-                      padding: EdgeInsets.all(14),
-                      decoration: BoxDecoration(
-                        color: Colors.orange.shade50,
-                        borderRadius: BorderRadius.circular(20)
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(image: AssetImage('assets/giftbox.png'),fit: BoxFit.cover)
-                            ),
-                          ),
-                          SizedBox(height: 5,),
-                          Text(
-                            'Invite Friends',
-                            style: GoogleFonts.inter(
-                              fontWeight: FontWeight.w600, fontSize: 17
-                            ),
-                          ),
-                          SizedBox(height: 5,),
-                          Text(
-                            'Earn a \$10 bonus when they sign up!',
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.inter(color: Colors.black.withOpacity(.5)),
-                          )
-                        ],
-                      ),
-                    ),
+                    child: inviteFriend(),
                   ),
                   const SizedBox(width: 10,),
                   AspectRatio(
                     aspectRatio: 1/1,
-                    child: Container(
-                      padding: EdgeInsets.only(left: 14,top: 14,right: 14),
-                      decoration: BoxDecoration(
-                        color: Colors.blue.shade100.withOpacity(.5),
-                        borderRadius: BorderRadius.circular(20)
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          CircleAvatar(
-                            radius: 25,
-                            backgroundColor: Colors.blue.shade200,
-                            child: Icon(Iconsax.chart),
-                          ),
-                          SizedBox(height: 5,),
-                          Text(
-                            'Analytics',
-                            style: GoogleFonts.inter(
-                              fontWeight: FontWeight.w600, fontSize: 17
-                            ),
-                          ),
-                          SizedBox(height: 5,),
-                          Text(
-                            'Reveal costs and power informed choices',
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.inter(color: Colors.black.withOpacity(.5)),
-                          )
-                        ],
-                      ),
-                    ),
+                    child: analytics(),
                   ),
                 ],
               )

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
@@ -38,7 +36,7 @@ class _CardDetailsScreenState extends State<CardDetailsScreen> {
           onPressed: (){
             Navigator.pop(context);
           }, 
-          icon: Icon(Icons.arrow_back_ios,color: Colors.black,)
+          icon: const Icon(Icons.arrow_back_ios,color: Colors.black,)
         ),
         title: Text(
           'Card details',
@@ -65,19 +63,19 @@ class _CardDetailsScreenState extends State<CardDetailsScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ConstrainedBox(
-                        constraints: BoxConstraints(maxWidth: 30,maxHeight: 30),
+                        constraints: const BoxConstraints(maxWidth: 30,maxHeight: 30),
                         child: Image(image: AssetImage(widget.cardLogo))),
                       Expanded(
                         child: Center(
                           child: Column(
                             children: [
-                              SizedBox(height: 20,),
+                              const SizedBox(height: 20,),
                               Text(
                                 'Balance',
                                 style: GoogleFonts.inter(
                                   fontSize: 15, fontWeight: FontWeight.w500,color: Colors.white),
                               ),
-                              SizedBox(height: 5,),
+                              const SizedBox(height: 5,),
                               Text(
                                 widget.cardBalance,
                                 style: GoogleFonts.inter(
@@ -124,7 +122,7 @@ class _CardDetailsScreenState extends State<CardDetailsScreen> {
                 ),
               ),
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(height: 5,),
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
@@ -135,11 +133,11 @@ class _CardDetailsScreenState extends State<CardDetailsScreen> {
                   decoration: TextDecoration.underline
                 ),),
                 onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Details Copied'),duration: Duration(seconds: 2),));
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Details Copied'),duration: Duration(seconds: 2),));
                 },
               ),
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(height: 5,),
             rowItem('Card No.', widget.cardNumber, Iconsax.card),
             rowItem('Expiry date', widget.expiryDate, Iconsax.card_slash),
             rowItem('CVV code', widget.cvvCode, Iconsax.card_edit),
@@ -204,7 +202,7 @@ class _CardDetailsScreenState extends State<CardDetailsScreen> {
               title,
               style: GoogleFonts.inter(fontSize: 14,fontWeight: FontWeight.w600),
             ),
-            Spacer(),
+            const Spacer(),
             Opacity(
               opacity: .7,
               child: Text(
@@ -214,7 +212,7 @@ class _CardDetailsScreenState extends State<CardDetailsScreen> {
             ),
           ],
         ),
-        Divider(
+        const Divider(
           height: 22,
         )
       ],

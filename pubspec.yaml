@@ -31,11 +31,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  eva_icons_flutter:
   google_fonts:
-  font_awesome_flutter: 
   iconsax: 
-  numeric_keyboard: ^1.1.0
 
 
   # The following adds the Cupertino Icons font to your application.

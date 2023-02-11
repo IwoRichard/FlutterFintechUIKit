@@ -53,6 +53,16 @@ class _ContactScreenState extends State<ContactScreen> {
                     borderSide: BorderSide.none
                   )
                 ),
+                onChanged: (query) {
+                  final searchResult = accounts.where((element){
+                    final accountName = element.name.toLowerCase();
+                    final queryLowerCase = query.toLowerCase();
+                    return accountName.contains(queryLowerCase);
+                  }).toList();
+
+                  contacts = searchResult;
+                  setState(() {});
+                },
               ),
             ),
             const SizedBox(height: 10,),
