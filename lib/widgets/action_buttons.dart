@@ -29,7 +29,7 @@ Widget actionButtons(context) {
         ),
         const SizedBox(width: 15,),
         Expanded(
-          child: GestureDetector(
+          child: InkWell(
             onTap: (){
               Navigator.push(
                 context, 

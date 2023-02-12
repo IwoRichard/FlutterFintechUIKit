@@ -37,7 +37,7 @@ class _CardScreenState extends State<CardScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 190,
+              height: 150,
               width: double.infinity,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -167,14 +167,14 @@ class _CardScreenState extends State<CardScreen> {
               )
             ),
             Expanded(
-              flex: 3,
+              flex: 4,
               child: Row(
                 children: [
                   AspectRatio(
                     aspectRatio: 1/1,
                     child: inviteFriend(),
                   ),
-                  const SizedBox(width: 10,),
+                  const Spacer(),
                   AspectRatio(
                     aspectRatio: 1/1,
                     child: analytics(),

@@ -81,7 +81,7 @@ class _ContactScreenState extends State<ContactScreen> {
                 itemCount: contacts.length,
                 itemBuilder: (context, index){
                   var data = contacts[index];
-                  return GestureDetector(
+                  return InkWell(
                     onTap: (){
                       bottomSheet(context, data);
                     },
